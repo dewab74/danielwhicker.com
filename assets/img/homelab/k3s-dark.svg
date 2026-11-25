@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 845" width="720" height="845" font-family="Helvetica, Arial, sans-serif">
+<text x="360.0" y="22" fill="#F1F5F9" font-size="18" font-weight="700" text-anchor="middle">k3s cluster</text>
+<path d="M1 48V40H719V48M360.0 40V30" fill="none" stroke="#94A3B8"/>
+<rect x="0" y="58" width="230" height="262" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="115.0" y="82" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Automation</text>
+<rect x="10" y="206" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="115.0" y="227" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">AWX</text>
+<text x="115.0" y="244" fill="#F1F5F9" font-size="12" text-anchor="middle">Ansible jobs and events</text>
+<rect x="10" y="262" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="115.0" y="283" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">ARC</text>
+<text x="115.0" y="300" fill="#F1F5F9" font-size="12" text-anchor="middle">GitHub Actions runners</text>
+<rect x="245" y="58" width="230" height="262" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="360.0" y="82" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Monitoring</text>
+<rect x="255" y="94" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="115" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Prometheus</text>
+<text x="360.0" y="132" fill="#F1F5F9" font-size="12" text-anchor="middle">with Alertmanager</text>
+<rect x="255" y="150" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="171" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Grafana</text>
+<text x="360.0" y="188" fill="#F1F5F9" font-size="12" text-anchor="middle">dashboards</text>
+<rect x="255" y="206" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="227" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Loki</text>
+<text x="360.0" y="244" fill="#F1F5F9" font-size="12" text-anchor="middle">logs, via Alloy, Promtail</text>
+<rect x="255" y="262" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="283" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Uptime Kuma</text>
+<text x="360.0" y="300" fill="#F1F5F9" font-size="12" text-anchor="middle">up or down</text>
+<rect x="490" y="58" width="230" height="262" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="605.0" y="82" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Alerts and chat</text>
+<rect x="500" y="150" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="605.0" y="171" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Matrix</text>
+<text x="605.0" y="188" fill="#F1F5F9" font-size="12" text-anchor="middle">with Element</text>
+<rect x="500" y="206" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="605.0" y="227" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Hookshot</text>
+<text x="605.0" y="244" fill="#F1F5F9" font-size="12" text-anchor="middle">webhooks</text>
+<rect x="500" y="262" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="605.0" y="283" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">mailrise</text>
+<text x="605.0" y="300" fill="#F1F5F9" font-size="12" text-anchor="middle">email to chat</text>
+<rect x="0" y="332" width="230" height="206" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="115.0" y="356" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Records</text>
+<rect x="10" y="424" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="115.0" y="445" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Wiki.js</text>
+<text x="115.0" y="462" fill="#F1F5F9" font-size="12" text-anchor="middle">documentation</text>
+<rect x="10" y="480" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="115.0" y="501" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">NetBox</text>
+<text x="115.0" y="518" fill="#F1F5F9" font-size="12" text-anchor="middle">inventory</text>
+<rect x="245" y="332" width="230" height="206" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="360.0" y="356" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Data</text>
+<rect x="255" y="424" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="445" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">CloudNativePG</text>
+<text x="360.0" y="462" fill="#F1F5F9" font-size="12" text-anchor="middle">Postgres</text>
+<rect x="255" y="480" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="501" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">SeaweedFS</text>
+<text x="360.0" y="518" fill="#F1F5F9" font-size="12" text-anchor="middle">object storage</text>
+<rect x="490" y="332" width="230" height="206" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="605.0" y="356" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">DHCP and tools</text>
+<rect x="500" y="368" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="605.0" y="389" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Stork</text>
+<text x="605.0" y="406" fill="#F1F5F9" font-size="12" text-anchor="middle">DHCP management</text>
+<rect x="500" y="424" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="605.0" y="445" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Headlamp</text>
+<text x="605.0" y="462" fill="#F1F5F9" font-size="12" text-anchor="middle">cluster UI</text>
+<rect x="500" y="480" width="210" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="605.0" y="501" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">SearXNG</text>
+<text x="605.0" y="518" fill="#F1F5F9" font-size="12" text-anchor="middle">search</text>
+<rect x="0" y="550" width="720" height="40" rx="4" fill="#14294F" stroke="#34496B"/>
+<text x="360.0" y="575" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Traffic: NGINX ingress and MetalLB</text>
+<rect x="0" y="598" width="720" height="40" rx="4" fill="#14294F" stroke="#34496B"/>
+<text x="360.0" y="623" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Names and certificates: external-dns, cert-manager, step-ca via step-issuer</text>
+<rect x="0" y="646" width="720" height="40" rx="4" fill="#14294F" stroke="#34496B"/>
+<text x="360.0" y="671" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Storage: NFS CSI to the NAS, and local-path</text>
+<rect x="0" y="694" width="230" height="150" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<rect x="10" y="704" width="210" height="48" rx="4" fill="#60A5FA"/>
+<text x="115.0" y="725" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">k3s-n01</text>
+<text x="115.0" y="742" fill="#050F2D" font-size="12" text-anchor="middle">worker</text>
+<rect x="10" y="760" width="210" height="48" rx="4" fill="#22D3EE"/>
+<text x="115.0" y="781" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">k3s-m01</text>
+<text x="115.0" y="798" fill="#050F2D" font-size="12" text-anchor="middle">control plane, kube-vip</text>
+<text x="115.0" y="832" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">VMs on pve01</text>
+<rect x="245" y="694" width="230" height="150" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<rect x="255" y="704" width="210" height="48" rx="4" fill="#60A5FA"/>
+<text x="360.0" y="725" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">k3s-n02</text>
+<text x="360.0" y="742" fill="#050F2D" font-size="12" text-anchor="middle">worker</text>
+<rect x="255" y="760" width="210" height="48" rx="4" fill="#22D3EE"/>
+<text x="360.0" y="781" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">k3s-m02</text>
+<text x="360.0" y="798" fill="#050F2D" font-size="12" text-anchor="middle">control plane, kube-vip</text>
+<text x="360.0" y="832" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">VMs on pve02</text>
+<rect x="490" y="694" width="230" height="150" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<rect x="500" y="704" width="210" height="48" rx="4" fill="#60A5FA"/>
+<text x="605.0" y="725" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">k3s-n03</text>
+<text x="605.0" y="742" fill="#050F2D" font-size="12" text-anchor="middle">worker</text>
+<rect x="500" y="760" width="210" height="48" rx="4" fill="#22D3EE"/>
+<text x="605.0" y="781" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">k3s-m03</text>
+<text x="605.0" y="798" fill="#050F2D" font-size="12" text-anchor="middle">control plane, kube-vip</text>
+<text x="605.0" y="832" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">VMs on pve03</text>
+</svg>

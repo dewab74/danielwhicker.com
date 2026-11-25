@@ -1,0 +1,12 @@
+flowchart TB
+  clients(["Home network"]) -->|"names and addresses"| pair
+  subgraph pair["Two container hosts"]
+    subgraph d2["dns02"]
+      t2["DNS02<br/>Technitium secondary"] ~~~ k2["DHCP02<br/>Kea, Stork agent"] ~~~ p2["PostgreSQL, Patroni"]
+    end
+    subgraph d1["dns01"]
+      t1["DNS01<br/>Technitium primary"] ~~~ k1["DHCP01<br/>Kea, Stork agent"] ~~~ p1["PostgreSQL, Patroni"]
+    end
+  end
+  q["dns0q<br/>Raspberry Pi witness"] -->|"breaks ties"| pair
+  stork["Stork server<br/>in k3s"] -->|"manages DHCP"| pair

@@ -1,0 +1,12 @@
+flowchart TB
+  inet(["Internet"]) --> fw["OPNsense<br/>firewall"]
+  fw -->|"published services"| dmz
+  fw --> home(["Inside networks"])
+  subgraph dmz["DMZ VLAN"]
+    subgraph edges["Edge proxies"]
+      ep1["edge-proxy-1"] ~~~ ep2["edge-proxy-2"]
+    end
+    subgraph jump["SSH bastions"]
+      b1["bastion-1"] ~~~ b2["bastion-2"]
+    end
+  end

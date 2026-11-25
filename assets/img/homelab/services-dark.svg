@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 743" width="720" height="743" font-family="Helvetica, Arial, sans-serif">
+<text x="360.0" y="22" fill="#F1F5F9" font-size="18" font-weight="700" text-anchor="middle">How it fits together</text>
+<path d="M1 48V40H719V48M360.0 40V30" fill="none" stroke="#94A3B8"/>
+<rect x="0" y="58" width="720" height="40" rx="4" fill="#0B1B40" stroke="#34496B"/>
+<text x="360.0" y="83" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Internet</text>
+<rect x="0" y="106" width="720" height="40" rx="4" fill="#22D3EE" stroke="#34496B"/>
+<text x="360.0" y="131" fill="#050F2D" font-size="15" font-weight="700" text-anchor="middle">OPNsense firewall and router</text>
+<rect x="0" y="154" width="475" height="150" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="237.5" y="178" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">DMZ VLAN: published services</text>
+<rect x="10" y="190" width="222.5" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="121.25" y="211.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">edge-proxy-1</text>
+<text x="121.25" y="228.0" fill="#F1F5F9" font-size="12" text-anchor="middle">edge proxy</text>
+<rect x="242.5" y="190" width="222.5" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="353.75" y="211.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">edge-proxy-2</text>
+<text x="353.75" y="228.0" fill="#F1F5F9" font-size="12" text-anchor="middle">edge proxy</text>
+<rect x="10" y="246" width="222.5" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="121.25" y="267.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">bastion-1</text>
+<text x="121.25" y="284.0" fill="#F1F5F9" font-size="12" text-anchor="middle">SSH bastion</text>
+<rect x="242.5" y="246" width="222.5" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="353.75" y="267.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">bastion-2</text>
+<text x="353.75" y="284.0" fill="#F1F5F9" font-size="12" text-anchor="middle">SSH bastion</text>
+<rect x="490" y="154.0" width="230" height="69.0" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="605.0" y="184.5" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">IoT VLAN</text>
+<text x="605.0" y="203.5" fill="#F1F5F9" font-size="12" text-anchor="middle">smart home gear</text>
+<rect x="490" y="235.0" width="230" height="69.0" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="605.0" y="265.5" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Guest VLAN</text>
+<text x="605.0" y="284.5" fill="#F1F5F9" font-size="12" text-anchor="middle">visitors&#x27; devices</text>
+<rect x="0" y="316" width="720" height="426" rx="6" fill="#0B1B40" stroke="#34496B"/>
+<text x="360.0" y="341" fill="#F1F5F9" font-size="15" font-weight="700" text-anchor="middle">Home and lab networks</text>
+<rect x="10.0" y="354" width="226.66666666666666" height="204" rx="6" fill="#0B1B40" stroke="#4B628A"/>
+<text x="123.33333333333333" y="376" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">dns01: containers</text>
+<rect x="15.0" y="393.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="123.33333333333333" y="414.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">DNS01</text>
+<text x="123.33333333333333" y="431.0" fill="#F1F5F9" font-size="12" text-anchor="middle">Technitium primary</text>
+<rect x="15.0" y="449.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="123.33333333333333" y="470.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">DHCP01</text>
+<text x="123.33333333333333" y="487.0" fill="#F1F5F9" font-size="12" text-anchor="middle">Kea, Stork agent</text>
+<rect x="15.0" y="505.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="123.33333333333333" y="526.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">PostgreSQL</text>
+<text x="123.33333333333333" y="543.0" fill="#F1F5F9" font-size="12" text-anchor="middle">under Patroni</text>
+<rect x="246.66666666666666" y="354" width="226.66666666666666" height="204" rx="6" fill="#0B1B40" stroke="#4B628A"/>
+<text x="360.0" y="376" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">dns02: containers</text>
+<rect x="251.66666666666666" y="393.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="414.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">DNS02</text>
+<text x="360.0" y="431.0" fill="#F1F5F9" font-size="12" text-anchor="middle">Technitium secondary</text>
+<rect x="251.66666666666666" y="449.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="470.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">DHCP02</text>
+<text x="360.0" y="487.0" fill="#F1F5F9" font-size="12" text-anchor="middle">Kea, Stork agent</text>
+<rect x="251.66666666666666" y="505.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="526.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">PostgreSQL</text>
+<text x="360.0" y="543.0" fill="#F1F5F9" font-size="12" text-anchor="middle">under Patroni</text>
+<rect x="483.3333333333333" y="354" width="226.66666666666666" height="204" rx="6" fill="#0B1B40" stroke="#4B628A"/>
+<text x="596.6666666666666" y="376" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">docker01: containers</text>
+<rect x="488.3333333333333" y="449.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="596.6666666666666" y="478.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Single sign-on</text>
+<rect x="488.3333333333333" y="505.0" width="216.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="596.6666666666666" y="526.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Ollama</text>
+<text x="596.6666666666666" y="543.0" fill="#F1F5F9" font-size="12" text-anchor="middle">local LLM</text>
+<rect x="10" y="568" width="463.3333333333333" height="48" rx="4" fill="#60A5FA"/>
+<text x="241.66666666666666" y="589.0" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">Proxmox cluster</text>
+<text x="241.66666666666666" y="606.0" fill="#050F2D" font-size="12" text-anchor="middle">pve01, pve02, pve03: k3s and other VMs</text>
+<rect x="483.3333333333333" y="568" width="226.66666666666666" height="48" rx="4" fill="#60A5FA"/>
+<text x="596.6666666666666" y="589.0" fill="#050F2D" font-size="14" font-weight="700" text-anchor="middle">NAS</text>
+<text x="596.6666666666666" y="606.0" fill="#050F2D" font-size="12" text-anchor="middle">disks, volumes and files</text>
+<rect x="10" y="626" width="226.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="123.33333333333333" y="647.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">dns0q</text>
+<text x="123.33333333333333" y="664.0" fill="#F1F5F9" font-size="12" text-anchor="middle">Pi: Patroni witness</text>
+<rect x="246.66666666666666" y="626" width="226.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="360.0" y="647.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">rpi-usbip</text>
+<text x="360.0" y="664.0" fill="#F1F5F9" font-size="12" text-anchor="middle">Pi: print and scan</text>
+<rect x="483.3333333333333" y="626" width="226.66666666666666" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="596.6666666666666" y="647.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Batocera</text>
+<text x="596.6666666666666" y="664.0" fill="#F1F5F9" font-size="12" text-anchor="middle">Pi: arcade and retro games</text>
+<rect x="10" y="684" width="345.0" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="182.5" y="713.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">Secrets manager</text>
+<rect x="365.0" y="684" width="345.0" height="48" rx="4" fill="#20365C" stroke="#4B628A"/>
+<text x="537.5" y="705.0" fill="#F1F5F9" font-size="14" font-weight="700" text-anchor="middle">step-ca</text>
+<text x="537.5" y="722.0" fill="#F1F5F9" font-size="12" text-anchor="middle">private certificate authority</text>
+</svg>
