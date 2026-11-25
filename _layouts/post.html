@@ -3,16 +3,23 @@ layout: default
 ---
 {% assign words = content | number_of_words %}
 <div class="wrap">
-    <article class="post measure"{% if page.accent %} data-accent="{{ page.accent }}"{% endif %}>
+    <article class="post"{% if page.accent %} data-accent="{{ page.accent }}"{% endif %}>
         <header class="post-header">
-            <p class="kicker">{% include kicker.html accent=page.accent %}</p>
             <h1 class="post-title">{{ page.title | escape }}</h1>
             {% if page.description %}<p class="post-dek">{{ page.description | escape }}</p>{% endif %}
             <p class="post-meta">
                 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
-                &middot; {{ words | divided_by: 220 | plus: 1 }} min read
+                {% if page.last_edited %}
+                <span>Last edited <time datetime="{{ page.last_edited | date: '%Y-%m-%d' }}">{{ page.last_edited | date: '%B %-d, %Y' }}</time></span>
+                {% endif %}
+                <span>{{ words | divided_by: 220 | plus: 1 }} min read</span>
+                <span class="topic">{% include kicker.html accent=page.accent %}</span>
             </p>
         </header>
+
+        {% if page.series %}
+        {% include series.html %}
+        {% endif %}
 
         <div class="post-body">
 {{ content }}
@@ -25,7 +32,16 @@ layout: default
         {% endif %}
     </article>
 
-    <div class="measure">
-        {% include comments.html %}
-    </div>
+    {% if page.previous or page.next %}
+    <nav class="post-nav" aria-label="More posts">
+        {% if page.previous %}
+        <a class="older" href="{{ page.previous.url | relative_url }}"><span>Older</span>{{ page.previous.title | escape }}</a>
+        {% endif %}
+        {% if page.next %}
+        <a class="newer" href="{{ page.next.url | relative_url }}"><span>Newer</span>{{ page.next.title | escape }}</a>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+    {% include comments.html %}
 </div>

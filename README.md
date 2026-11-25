@@ -39,6 +39,14 @@ is what makes it appear. The source is visible in the repo before then.
 `_drafts/` is git-ignored on purpose, so an unreviewed draft cannot reach the
 remote by accident.
 
+### Editing a published post
+
+A post that is already out shows "Last edited" at the top once `last_edited` is
+in its front matter. A pre-commit hook (`scripts/last_edited.py`) sets it to
+today when a commit changes the post's title, description, text, or a file under
+`assets/` that it uses. The commit stops so you can stage the post and commit
+again. Edits made in GitHub's web editor skip the hook, so set it by hand there.
+
 ## Configuration
 
 Site settings live in `_config.yml`. Comments are off until the `comments`

@@ -73,3 +73,13 @@ repos:
     hooks:
       - id: markdownlint-fix
         args: [--config, .markdownlint.yaml]
+
+  # ---- Posts ---------------------------------------------------------------
+  - repo: local
+    hooks:
+      - id: last-edited
+        name: Set last_edited on published posts
+        entry: scripts/last_edited.py
+        language: script
+        pass_filenames: false
+        always_run: true

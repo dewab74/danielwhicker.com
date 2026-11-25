@@ -1,0 +1,15 @@
+{%- comment -%}
+    Lists the published posts that share this post's series, in series_part order.
+    Unpublished parts simply don't appear. Used by the post layout.
+{%- endcomment -%}
+{%- assign parts = site.posts | where: "series", page.series | sort: "series_part" -%}
+{%- if parts.size > 1 %}
+<nav class="series" aria-label="Series">
+    <p>In this series</p>
+    <ol>
+        {%- for part in parts %}
+        <li>{% if part.url == page.url %}<span aria-current="page">{{ part.title | escape }}</span>{% else %}<a href="{{ part.url | relative_url }}">{{ part.title | escape }}</a>{% endif %}</li>
+        {%- endfor %}
+    </ol>
+</nav>
+{%- endif %}

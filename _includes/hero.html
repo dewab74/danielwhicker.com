@@ -4,7 +4,7 @@
     {% include hero.html title="..." lede="..." %}
 {%- endcomment -%}
 <section class="hero twilight-theme" data-theme="dark" aria-labelledby="hero-title">
-    <div class="hero-inner">
+    <div class="hero-inner wrap">
         <h1 id="hero-title">{{ include.title }}</h1>
         {% if include.lede %}<p>{{ include.lede }}</p>{% endif %}
     </div>

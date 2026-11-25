@@ -5,13 +5,24 @@
  * vendored Twilight Horizon theme in assets/theme/. This file only adds blog
  * layout on top and defines no colours or fonts of its own. It loads last, and
  * the theme's rules are low-specificity, so plain selectors here win.
+ *
+ * The idea: one column, one left edge, and the artwork as the only loud thing.
  */
 
 body.twilight-theme {
-    margin: 0;
-    min-height: 100vh;
+    --column: 44rem;
+    --gutter: var(--spacing-md);
+
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+@media (min-width: 720px) {
+    body.twilight-theme {
+        --gutter: var(--spacing-xl);
+    }
 }
 
 main {
@@ -20,35 +31,34 @@ main {
 }
 
 .wrap {
+    box-sizing: border-box;
     width: 100%;
-    max-width: 62rem;
+    max-width: calc(var(--column) + 2 * var(--gutter));
     margin-inline: auto;
-    padding-inline: var(--spacing-md);
+    padding-inline: var(--gutter);
 }
 
-@media (min-width: 720px) {
-    .wrap {
-        padding-inline: var(--spacing-xl);
+/* A short fade between pages, in browsers that support it. */
+
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 180ms;
     }
 }
 
-.measure {
-    max-width: 42rem;
-    margin-inline: auto;
-}
-
 /* Header and footer */
-
-.site-header {
-    border-bottom: 1px solid var(--color-border);
-}
 
 .site-header-inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-sm) var(--spacing-lg);
+    gap: var(--spacing-xs) var(--spacing-lg);
     min-height: var(--layout-header-height);
 }
 
@@ -64,7 +74,7 @@ main {
 
 .site-nav {
     display: flex;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-lg);
     font-size: var(--font-size-small);
 }
 
@@ -72,55 +82,61 @@ main {
     display: inline-flex;
     align-items: center;
     min-height: var(--control-min-height);
-    padding-inline: var(--spacing-step);
-    border-radius: var(--radius-medium);
     color: var(--color-text-secondary);
-    text-decoration: none;
+    text-decoration: underline 2px transparent;
+    text-underline-offset: 0.55em;
+    transition: color 150ms ease-in-out, text-decoration-color 150ms ease-in-out;
 }
 
 .site-nav a:hover {
-    background: var(--color-surface);
     color: var(--color-text-primary);
 }
 
 .site-nav a[aria-current="page"] {
-    background: var(--color-surface);
-    color: var(--color-primary);
+    color: var(--color-text-primary);
+    text-decoration-color: var(--color-primary);
 }
 
 .site-footer {
-    border-top: 1px solid var(--color-border);
-    padding-block: var(--spacing-lg);
+    padding-block: var(--spacing-xl);
     color: var(--color-text-muted);
     font-size: var(--font-size-small);
+}
+
+.site-footer .wrap::before {
+    content: "";
+    display: block;
+    margin-bottom: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
 }
 
 /* Artwork banner: the artwork is for landing and error pages; reading pages stay solid navy. */
 
 .hero {
-    margin-top: var(--spacing-xl);
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-dialog);
+    padding-bottom: var(--spacing-2xl);
 }
 
-/* The art sits above the text, not behind it, so copy never competes with the illustration. */
+/*
+ * Full width, fading into the navy so the headline sits on the horizon. The fade
+ * is a mask, not a navy overlay, so no hard edge can show under the picture.
+ */
 .hero::before {
-    --hero-fade: linear-gradient(to bottom, rgb(5 15 45 / 0%) 50%, var(--color-background) 97%);
+    --hero-mask: linear-gradient(to bottom, transparent 0%, #000 14%, #000 50%, transparent 97%);
 
     content: "";
     display: block;
-    aspect-ratio: 1671 / 720;
-    background-image: var(--hero-fade), url("../theme/images/backgrounds/full-1671.jpg");
-    background-position: center top;
+    height: clamp(12rem, 36vw, 27rem);
+    background-image: url("../theme/images/backgrounds/full-1671.jpg");
+    background-position: center 30%;
     background-size: cover;
     background-repeat: no-repeat;
+    -webkit-mask-image: var(--hero-mask);
+    mask-image: var(--hero-mask);
 }
 
 @supports (background-image: image-set(url("x.avif") type("image/avif"))) {
     .hero::before {
         background-image:
-            var(--hero-fade),
             image-set(
                 url("../theme/images/backgrounds/full-1671.avif") type("image/avif"),
                 url("../theme/images/backgrounds/full-1671.webp") type("image/webp"),
@@ -131,14 +147,12 @@ main {
 
 @media (max-width: 720px) {
     .hero::before {
-        aspect-ratio: 800 / 420;
-        background-image: var(--hero-fade), url("../theme/images/backgrounds/full-800.jpg");
+        background-image: url("../theme/images/backgrounds/full-800.jpg");
     }
 
     @supports (background-image: image-set(url("x.avif") type("image/avif"))) {
         .hero::before {
             background-image:
-                var(--hero-fade),
                 image-set(
                     url("../theme/images/backgrounds/full-800.avif") type("image/avif"),
                     url("../theme/images/backgrounds/full-800.webp") type("image/webp"),
@@ -149,113 +163,112 @@ main {
 }
 
 .hero-inner {
-    padding: 0 var(--spacing-lg) var(--spacing-xl);
+    position: relative;
+    margin-top: calc(-1 * var(--spacing-lg));
 }
 
 .hero h1 {
-    max-width: 22ch;
-    margin: 0 0 var(--spacing-sm);
-    font-size: clamp(1.75rem, 4.6vw, 2.5rem);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    max-width: 18ch;
+    margin: 0 0 var(--spacing-md);
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     text-wrap: balance;
 }
 
 .hero p {
-    max-width: 38rem;
+    max-width: 34rem;
     margin: 0;
     color: var(--color-text-secondary);
-}
-
-.not-found {
-    margin-top: var(--spacing-xl);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    text-wrap: pretty;
 }
 
 .not-found .button-primary {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
     text-decoration: none;
 }
 
-/* Topic label (colour comes from the theme's data-accent role) */
+/* Topic (colour comes from the theme's data-accent role) */
 
-.kicker {
-    display: flex;
+.topic {
+    display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    margin: 0 0 var(--spacing-sm);
+    gap: var(--spacing-xs);
     color: var(--color-app-accent);
-    font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
-.kicker .icon {
+.topic .icon {
     --icon-size: 16px;
-}
-
-.post-meta {
-    margin: 0;
-    color: var(--color-text-muted);
-    font-size: var(--font-size-small);
-}
-
-.post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    margin: var(--spacing-md) 0 0;
 }
 
 /* Post list */
 
 .post-list {
-    display: grid;
-    gap: var(--spacing-lg);
-    margin: var(--spacing-xl) 0 0;
+    margin: var(--spacing-md) 0 0;
     padding: 0;
     list-style: none;
 }
 
-.post-card {
+.entry {
     position: relative;
-    border-inline-start: 3px solid var(--color-app-accent);
+    display: grid;
+    gap: var(--spacing-sm) var(--spacing-lg);
+    padding-block: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
 }
 
-.post-card h3 {
+@media (min-width: 720px) {
+    .entry {
+        grid-template-columns: 7.5rem minmax(0, 1fr);
+    }
+}
+
+.entry-date {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.9;
+}
+
+.entry h3 {
     margin: 0 0 var(--spacing-sm);
-    font-size: var(--font-size-section-heading);
+    font-size: 1.375rem;
+    font-weight: var(--font-weight-semibold);
     line-height: 1.3;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
 }
 
-.post-card h3 a {
+.entry h3 a {
     color: var(--color-text-primary);
     text-decoration: none;
+    transition: color 150ms ease-in-out;
 }
 
-.post-card h3 a::after {
+/* The whole row is the link. */
+.entry h3 a::after {
     content: "";
     position: absolute;
     inset: 0;
 }
 
-.post-card:hover h3 a {
+.entry:hover h3 a {
     color: var(--color-primary);
-    text-decoration: underline;
 }
 
-.post-card:hover {
-    background: var(--color-surface-elevated);
+.entry-summary {
+    margin: 0 0 var(--spacing-step);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    text-wrap: pretty;
 }
 
-.post-card-more {
-    position: absolute;
-    inset-block-end: var(--spacing-md);
-    inset-inline-end: var(--spacing-lg);
-    color: var(--color-app-accent);
+.entry .topic {
+    font-size: var(--font-size-small);
 }
 
 /* Post */
@@ -264,28 +277,37 @@ main {
     padding-top: var(--spacing-2xl);
 }
 
+.post-header {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
 .post-title {
     margin: 0 0 var(--spacing-md);
-    font-size: clamp(1.9rem, 5vw, 2.75rem);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 5.5vw, 2.9rem);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.12;
+    letter-spacing: -0.028em;
     text-wrap: balance;
 }
 
 .post-dek {
-    margin: 0 0 var(--spacing-md);
+    margin: 0 0 var(--spacing-lg);
     color: var(--color-text-secondary);
-    font-size: 1.2rem;
-    line-height: 1.5;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    text-wrap: pretty;
 }
 
-.post-header {
-    margin-bottom: var(--spacing-xl);
-}
-
-.about-title {
-    margin-top: var(--spacing-2xl);
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-xs) var(--spacing-lg);
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
 }
 
 .post-body {
@@ -297,10 +319,21 @@ main {
     margin-top: 0;
 }
 
+.post-body > h1.about-title {
+    margin-top: var(--spacing-2xl);
+}
+
+.post-body a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
 .post-body h2 {
-    margin: 2.2em 0 0.6em;
-    font-size: 1.6rem;
-    letter-spacing: -0.01em;
+    margin: 2.4em 0 0.7em;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
 }
 
 .post-body h3 {
@@ -313,13 +346,21 @@ main {
     margin: 0 0 1.15em;
 }
 
+.post-body p {
+    text-wrap: pretty;
+}
+
 .post-body ul,
 .post-body ol {
-    padding-inline-start: 1.4em;
+    padding-inline-start: 1.25em;
 }
 
 .post-body li {
-    margin-bottom: 0.4em;
+    margin-bottom: 0.45em;
+}
+
+.post-body li::marker {
+    color: var(--color-text-muted);
 }
 
 .post-body blockquote {
@@ -345,6 +386,7 @@ main {
 .post-body pre {
     margin: 1.5em 0;
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
     line-height: 1.6;
 }
 
@@ -375,22 +417,30 @@ main {
 
 .post-body table {
     display: block;
-    margin: 1.5em 0;
+    margin: 1.75em 0;
     overflow-x: auto;
     border-collapse: collapse;
     font-size: var(--font-size-small);
+    font-variant-numeric: tabular-nums;
     line-height: 1.5;
 }
 
 .post-body th,
 .post-body td {
-    padding: var(--spacing-sm) var(--spacing-step);
+    padding: var(--spacing-step) var(--spacing-md) var(--spacing-step) 0;
     border-bottom: 1px solid var(--color-border);
     text-align: start;
     vertical-align: top;
 }
 
+/* Keep the column alignment that Markdown asks for. */
+.post-body th[style*="right"],
+.post-body td[style*="right"] {
+    text-align: end;
+}
+
 .post-body th {
+    color: var(--color-text-muted);
     font-weight: var(--font-weight-semibold);
 }
 
@@ -398,20 +448,27 @@ main {
 
 .post-body img {
     display: block;
+    box-sizing: border-box;
     width: 100%;
     height: auto;
     border-radius: var(--radius-large);
 }
 
+/* Screenshots are mostly dark on dark, so give them an edge. */
+.post-body img[src$=".png"],
+.post-body img[src$=".gif"] {
+    border: 1px solid var(--color-border);
+}
+
 .post-body figure {
-    margin: var(--spacing-xl) 0;
+    margin: var(--spacing-2xl) 0;
 }
 
 .post-body figcaption {
-    margin-top: var(--spacing-sm);
+    margin-top: var(--spacing-step);
     color: var(--color-text-muted);
     font-size: var(--font-size-small);
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 .figure-row {
@@ -419,10 +476,10 @@ main {
     flex-wrap: wrap;
     align-items: flex-end;
     gap: var(--spacing-lg);
-    margin: var(--spacing-xl) 0;
+    margin: var(--spacing-2xl) 0;
 }
 
-.figure-row > figure {
+.post-body .figure-row > figure {
     margin: 0;
 }
 
@@ -449,10 +506,37 @@ main {
     color: var(--color-link);
 }
 
-/* Download and source blocks */
+/* Links to the other parts of a series */
+
+.series {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-large);
+    background: var(--color-background-secondary);
+    font-size: var(--font-size-small);
+    line-height: 1.8;
+}
+
+.series p {
+    margin: 0 0 var(--spacing-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+.series ol {
+    margin: 0;
+    padding-inline-start: 1.4em;
+}
+
+.series [aria-current="page"] {
+    color: var(--color-text-muted);
+}
+
+/* Download and source block */
 
 .get-it {
     margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    background: var(--color-background-secondary);
 }
 
 .get-it p {
@@ -460,16 +544,14 @@ main {
 }
 
 .get-it .get-it-title {
-    margin-bottom: var(--spacing-md);
-    color: var(--color-text-secondary);
-    font-family: var(--font-family-monospace);
-    font-size: var(--font-size-small);
+    margin-bottom: var(--spacing-step);
+    font-weight: var(--font-weight-semibold);
 }
 
 .get-it .get-it-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-sm) var(--spacing-md);
+    gap: var(--spacing-sm) var(--spacing-step);
 }
 
 .get-it .get-it-actions a {
@@ -480,15 +562,62 @@ main {
 }
 
 .get-it .get-it-note {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-step);
     font-size: var(--font-size-small);
     line-height: 1.6;
+}
+
+/* After the post */
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-2xl) 0 0;
+}
+
+.post-nav {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 720px) {
+    .post-nav {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .post-nav .newer {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: end;
+    }
+}
+
+.post-nav a {
+    display: block;
+    color: var(--color-text-primary);
+    line-height: 1.45;
+    text-decoration: none;
+    transition: color 150ms ease-in-out;
+}
+
+.post-nav a span {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+}
+
+.post-nav a:hover {
+    color: var(--color-primary);
 }
 
 /* Comments */
 
 .comments {
-    margin-top: var(--spacing-3xl);
+    margin-top: var(--spacing-2xl);
     padding-top: var(--spacing-lg);
     border-top: 1px solid var(--color-border);
 }
@@ -504,6 +633,7 @@ main {
 @media print {
     .site-header,
     .site-footer,
+    .post-nav,
     .comments,
     .skip-link {
         display: none;
