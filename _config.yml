@@ -5,6 +5,14 @@ url: https://danielwhicker.com
 baseurl: ""
 lang: en
 
+# Search engines and link previews (see _includes/seo.html).
+github_profile: https://github.com/dewab74
+social_image: /assets/img/og/default.jpg
+social_image_alt: "An evening scene: arcade cabinets and craft supplies beside a cruise ship at sunset."
+home_title: "Homelab, automation and side projects"
+# Paste the code from Google Search Console here if verifying by meta tag.
+google_site_verification: ""
+
 markdown: kramdown
 kramdown:
   input: GFM

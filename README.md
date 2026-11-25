@@ -53,6 +53,12 @@ Site settings live in `_config.yml`. Comments are off until the `comments`
 block there is filled in (see the comments in that file). A post can opt out
 with `comments: false`.
 
+## Search and link previews
+
+`_includes/seo.html` adds Open Graph and structured data to every page, and
+`sitemap.xml` and `robots.txt` are generated without plugins. A post can set its
+own preview picture with `image:` and `image_alt:` in its front matter.
+
 ## Development setup
 
 Clone, then **install the git hooks**:
