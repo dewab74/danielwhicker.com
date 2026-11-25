@@ -59,6 +59,10 @@ with `comments: false`.
 `sitemap.xml` and `robots.txt` are generated without plugins. A post can set its
 own preview picture with `image:` and `image_alt:` in its front matter.
 
+The same daily workflow runs `scripts/indexnow.py`, which sends the addresses
+of new or edited pages to IndexNow search engines. The 32-character `.txt` file
+in the root is its key, and is meant to be public.
+
 ## Development setup
 
 Clone, then **install the git hooks**:

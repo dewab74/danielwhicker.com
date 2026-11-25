@@ -22,6 +22,7 @@ plugins: []
 
 exclude:
   - README.md
+  - scripts
 
 # Comments use giscus, which stores them as GitHub Discussions on this repo:
 # free, nothing to host. Readers need a (free) GitHub account.
