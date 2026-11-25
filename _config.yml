@@ -23,9 +23,9 @@ exclude:
 # https://giscus.app and set enabled to true. A post can opt out with
 # `comments: false` in its front matter.
 comments:
-  enabled: false
+  enabled: true
   repo: dewab74/danielwhicker.com
-  repo_id: ""
-  category: Blog comments
-  category_id: ""
+  repo_id: "R_kgDOV64wrw"
+  category: Announcements
+  category_id: "DIC_kwDOV64wr84DL6Na"
   mapping: pathname
