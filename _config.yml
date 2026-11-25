@@ -1,0 +1,31 @@
+title: Daniel Whicker
+tagline: Projects, results, and the occasional rabbit hole
+description: "Write-ups of the automation and home-lab projects I build, what they do, and what they're good for."
+url: https://danielwhicker.com
+baseurl: ""
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /:year/:month/:title/
+plugins: []
+
+exclude:
+  - README.md
+
+# Comments use giscus, which stores them as GitHub Discussions on this repo:
+# free, nothing to host. Readers need a (free) GitHub account.
+# Setup: make the repo public, enable Discussions, create a category (an
+# "Announcements"-type category keeps random people from opening threads),
+# install https://github.com/apps/giscus, then take repo_id and category_id from
+# https://giscus.app and set enabled to true. A post can opt out with
+# `comments: false` in its front matter.
+comments:
+  enabled: false
+  repo: dewab74/danielwhicker.com
+  repo_id: ""
+  category: Blog comments
+  category_id: ""
+  mapping: pathname

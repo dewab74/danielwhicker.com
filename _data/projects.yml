@@ -1,0 +1,52 @@
+# Download and source details for the projects the posts write about.
+# Posts use them with: {% include get-it.html id="kuma-status" %}
+# `download` is the button label. The button always links to the repo's latest
+# release page, so versions never go stale here. Omit it for nothing to download.
+# `note` may contain inline HTML.
+
+kuma-status:
+  name: Kuma Status
+  repo: dewab74/uptime-kuma-widget
+  download: Download Kuma Status
+  note: >-
+    macOS 14 or later. The app isn't notarized, so the first launch needs
+    Open Anyway in System Settings, Privacy &amp; Security. The checksum is on
+    the release page.
+
+ha-arcade-pc-agent:
+  name: ha-arcade-pc-agent
+  repo: dewab74/ha-arcade-pc-agent
+  download: Download the installer
+  note: >-
+    Windows 10 or 11, x64. The installer is not code-signed, so SmartScreen may
+    ask you to confirm. Each release publishes checksums.
+
+launchbox-mqtt:
+  name: launchbox-mqtt
+  repo: dewab74/launchbox-mqtt
+  download: Download the installer
+  note: >-
+    LaunchBox or BigBox 14.x on Windows. Close LaunchBox and BigBox first; the
+    installer asks for your LaunchBox folder. It is not code-signed, so
+    SmartScreen may ask you to confirm.
+
+hme:
+  name: hme
+  repo: dewab74/hide-my-email
+  download: Download hme
+  note: >-
+    Prebuilt binaries for macOS, Linux and Windows (amd64 and arm64), or
+    install it with Homebrew, below.
+
+mping:
+  name: mping
+  repo: dewab-org/mping
+  download: Download mping
+  note: >-
+    Linux (amd64, arm64) and macOS (Apple silicon). Or use Homebrew, below.
+
+profile:
+  name: profile
+  repo: dewab-org/profile
+  note: >-
+    Zsh on macOS and Linux. Clone it and run setup.py, which has a --dry-run.

@@ -1,0 +1,38 @@
+{% assign c = site.comments %}
+{% if c.enabled and c.repo_id != "" and c.category_id != "" and page.comments != false %}
+<section class="comments" aria-labelledby="comments-title">
+    <h2 id="comments-title">Comments</h2>
+    <p class="comments-note text-muted">
+        Comments are GitHub Discussions and need a free GitHub account.
+        Nothing is loaded from GitHub or giscus until you ask for it.
+    </p>
+    <button type="button" class="button-secondary" id="load-comments">Load comments</button>
+    <div id="comments-host"></div>
+</section>
+<script>
+    (function () {
+        var button = document.getElementById('load-comments');
+        var host = document.getElementById('comments-host');
+        if (!button || !host) { return; }
+        button.addEventListener('click', function () {
+            var s = document.createElement('script');
+            s.src = 'https://giscus.app/client.js';
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            s.setAttribute('data-repo', '{{ c.repo }}');
+            s.setAttribute('data-repo-id', '{{ c.repo_id }}');
+            s.setAttribute('data-category', '{{ c.category }}');
+            s.setAttribute('data-category-id', '{{ c.category_id }}');
+            s.setAttribute('data-mapping', '{{ c.mapping | default: "pathname" }}');
+            s.setAttribute('data-strict', '1');
+            s.setAttribute('data-reactions-enabled', '1');
+            s.setAttribute('data-emit-metadata', '0');
+            s.setAttribute('data-input-position', 'top');
+            s.setAttribute('data-theme', 'preferred_color_scheme');
+            s.setAttribute('data-lang', 'en');
+            host.appendChild(s);
+            button.remove();
+        });
+    }());
+</script>
+{% endif %}

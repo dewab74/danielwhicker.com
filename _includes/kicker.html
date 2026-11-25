@@ -1,0 +1,10 @@
+{%- comment -%}
+    Topic label with an icon. The colour comes from the theme's data-accent role on an
+    ancestor. Usage: {% include kicker.html accent=post.accent %}
+{%- endcomment -%}
+{%- case include.accent -%}
+{%- when "infrastructure" -%}{% include icon.html name="server" %}<span>Infrastructure</span>
+{%- when "automation" -%}{% include icon.html name="workflow" %}<span>Automation</span>
+{%- when "gaming" -%}{% include icon.html name="gamepad-2" %}<span>Gaming</span>
+{%- else -%}{% include icon.html name="sunset" %}<span>Notes</span>
+{%- endcase -%}

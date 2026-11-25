@@ -1,0 +1,20 @@
+{%- comment -%}
+    Download and source block for a project post. Usage:
+    {% include get-it.html id="hme" %}
+    The details live in _data/projects.yml. The download button links to the
+    repository's latest release page, so it never goes stale.
+{%- endcomment -%}
+{%- assign p = site.data.projects[include.id] -%}
+{%- assign repo_url = "https://github.com/" | append: p.repo -%}
+<aside class="card get-it" aria-label="Get {{ p.name | escape }}">
+    <p class="get-it-title">{{ p.name | escape }}</p>
+    <p class="get-it-actions">
+        {%- if p.download %}
+        <a class="button-primary" href="{{ repo_url }}/releases/latest">{% include icon.html name="box" %}<span>{{ p.download | escape }}</span></a>
+        {%- endif %}
+        <a class="button-secondary" href="{{ repo_url }}">{% include icon.html name="external-link" %}<span>Source on GitHub</span></a>
+    </p>
+    {%- if p.note %}
+    <p class="get-it-note text-muted">{{ p.note }}</p>
+    {%- endif %}
+</aside>

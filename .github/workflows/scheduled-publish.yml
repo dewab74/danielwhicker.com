@@ -1,0 +1,20 @@
+# GitHub Pages leaves future-dated posts out of a build and does not rebuild on
+# its own. This asks for a rebuild each morning so they appear on their date.
+name: Scheduled publish
+
+on:
+  schedule:
+    - cron: "17 15 * * *"  # daily, a little after 09:00 US Central
+  workflow_dispatch:
+
+permissions:
+  pages: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request a Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"

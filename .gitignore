@@ -1,0 +1,50 @@
+# ---- Universal -----------------------------------------------------------
+# Secrets: belt and braces. The hooks scan for leaked credentials, but the
+# cheapest leak to prevent is the file git never tracked in the first place.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+!**/testdata/**/*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+*.kdbx
+secrets.y*ml
+!secrets.example.y*ml
+credentials.json
+service-account*.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+.fleet/
+
+# Logs and scratch
+*.log
+tmp/
+.tmp/
+.cache/
+
+# ---- Docs ----------------------------------------------------------------
+_site/
+.docusaurus/
+site/
+
+# ---- Blog -----------------------------------------------------------------
+# Drafts stay local until Daniel approves them. Publishing a post means moving
+# it to _posts/ with a date prefix; nothing under _drafts/ can reach the remote.
+_drafts/
+_site/
+.jekyll-cache/
+.sass-cache/
